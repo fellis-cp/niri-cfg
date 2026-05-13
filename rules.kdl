@@ -1,58 +1,113 @@
-workspace "1" //game
-workspace "2" //coding
-workspace "3" //browser-music
+workspace "1" // game
+workspace "2" //code
+workspace "3" // browser
+workspace "4" // discord - Music
+workspace "5"  // translation
 
-    window-rule {
-        geometry-corner-radius 10 // Set every window radius to 20
-        clip-to-geometry true
-	    open-maximized true
-    }
 
-    layer-rule {
-        match namespace="^noctalia-wallpaper*"
-        place-within-backdrop true
-    }
 
-    //code
-    window-rule {
-    match app-id="code"
+window-rule {
+    geometry-corner-radius 12 // Set every window radius to 20
+    clip-to-geometry true
     open-maximized true
+    open-focused true
+    
+    background-effect {
+        blur true
+    }
+}
+
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+
+window-rule {
+    match app-id="vlc"
+    open-maximized false
+    open-focused true
+}
+
+
+window-rule {
+    match app-id="code"
+    open-on-workspace "2"
+    open-focused true
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="discord"
+    open-maximized true
+    open-on-workspace "4"
+    open-focused false
+}
+
+window-rule {
+    match app-id="google-chrome"
+    open-maximized true
+    open-on-workspace "3"
+    open-focused false
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="kitty"
+    open-maximized false
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="steam"
+    open-on-workspace "1"
+    open-focused false
+}
+
+window-rule {
+    match app-id="heroic"
+    open-maximized true
+    open-on-workspace "1"
+    open-focused true
+}
+
+window-rule {
+    match app-id="YouTube Music Desktop App"
+    open-maximized true
+    open-on-workspace "4"
+    open-focused false
+}
+
+window-rule {
+    match app-id="Spotify"
+    open-maximized true
+    open-on-workspace "4"
+    open-focused false
+}
+
+window-rule {
+    match app-id="GitHub Desktop"
     open-on-workspace "2"
 }
 
-    window-rule {
-    match app-id="discord"
+window-rule {
+    match app-id="antigravity"
+    open-on-workspace "2"
+}
+
+window-rule {
+    match app-id="python3"
+    open-on-workspace "5"
+    open-focused false
     open-maximized true
-    open-on-workspace "3"
 }
-
-    window-rule {
-    match app-id="google-chrome"
-    open-maximized true
-    open-on-workspace "3" 
-}
-
-
-	window-rule {
-	match app-id="kitty"
-	open-maximized false
-}
-
-    window-rule {
-    match app-id="steam"
-	open-on-workspace "1"
-}
-
-    window-rule {
-    match app-id="YouTube Music Desktop App"
-    open-maximized false
-	open-on-workspace "3"
-}
-
-    window-rule {
-    match app-id="GitHub Desktop"
-	open-on-workspace "2"
-}
-
-
 
