@@ -1,20 +1,63 @@
-   // prefer-no-csd 
-    screenshot-path "Pictures"
+// Prefer server-side window decorations.
+// Mengurangi title bar/dekorasi yang dibuat sendiri oleh aplikasi (client-side decoration)
+// agar tampilan lebih konsisten dengan Niri.
+prefer-no-csd true
 
-    environment {
-        ELECTRON_OZONE_PLATFORM_HINT "auto"
-        QT_QPA_PLATFORM "wayland"
-        QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-        XDG_SESSION_TYPE "wayland"
-        XDG_CURRENT_DESKTOP "niri"
-        QT_QPA_PLATFORMTHEME "gtk3"
+// Folder default untuk menyimpan hasil screenshot.
+screenshot-path "Pictures"
+
+environment {
+    // Electron (VS Code, Discord, Obsidian, Spotify, dll.)
+    // Gunakan Wayland jika tersedia, fallback ke X11 bila diperlukan.
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+
+    // Paksa aplikasi Qt menggunakan backend Wayland.
+    QT_QPA_PLATFORM "wayland"
+
+    // Nonaktifkan dekorasi window bawaan Qt agar Niri yang mengatur.
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+
+    // Memberi tahu aplikasi bahwa sesi saat ini adalah Wayland.
+    XDG_SESSION_TYPE "wayland"
+
+    // Nama desktop environment/window manager.
+    // Beberapa aplikasi menggunakan variabel ini untuk mendeteksi fitur desktop.
+    XDG_CURRENT_DESKTOP "niri"
+
+    // Gunakan tema GTK untuk aplikasi Qt agar tampilannya konsisten.
+    QT_QPA_PLATFORMTHEME "gtk3"
+
+    // ==========================
+    // NVIDIA (Laptop Hybrid)
+    // ==========================
+    // Desktop dijalankan menggunakan Intel iGPU.
+    // Jalankan aplikasi/game dengan `prime-run` jika ingin memakai RTX 3060.
+
+    // Gunakan driver VA-API NVIDIA untuk hardware video decode.
+    // Aktifkan hanya jika memang ingin decode video menggunakan NVIDIA.
+    // LIBVA_DRIVER_NAME "nvidia"
+
+    // Paksa penggunaan backend GBM milik NVIDIA.
+    // Umumnya hanya diperlukan bila seluruh sesi Wayland berjalan di NVIDIA.
+    // GBM_BACKEND "nvidia-drm"
+
+    // Memilih vendor OpenGL NVIDIA.
+    // Biasanya diatur otomatis oleh `prime-run`, sehingga tidak perlu diaktifkan secara global.
+    // __GLX_VENDOR_LIBRARY_NAME "nvidia"
+
+    // Bukan environment variable NVIDIA yang umum digunakan.
+    // Sebaiknya tetap dinonaktifkan kecuali aplikasi tertentu memang membutuhkannya.
+    // NVD_BACKEND "direct"
 }
 
-    debug {
-        // Allows notification actions and window activation from Noctalia.
-        honor-xdg-activation-with-invalid-serial
+debug {
+    // Mengizinkan aplikasi mengaktifkan window atau notification
+    // meskipun XDG activation serial tidak valid.
+    // Berguna untuk Noctalia dan beberapa launcher/aplikasi lain.
+    honor-xdg-activation-with-invalid-serial
 }
 
-    hotkey-overlay {
-       skip-at-startup
+hotkey-overlay {
+    // Jangan tampilkan overlay daftar shortcut saat Niri pertama kali dijalankan.
+    skip-at-startup
 }

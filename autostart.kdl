@@ -5,3 +5,5 @@
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
     spawn-sh-at-startup "qs -c noctalia-shell"
     spawn-at-startup "kanshi"
+    spawn-at-startup "discord"
+    spawn-at-startup "python3" "/home/flo/acer-predator-turbo-and-rgb-keyboard-linux-module/facer_rgb.py"    

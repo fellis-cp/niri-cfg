@@ -107,9 +107,12 @@ binds {
     Mod+Shift+9                          { move-column-to-workspace 9; }
 
     // Mod+TAB                             { focus-workspace-previous; }
-    Mod+TAB hotkey-overlay-title=" Open rofi launcher:rofi " { spawn "rofi" "-show" "window"; } 
+    Mod+TAB hotkey-overlay-title=" Open rofi launcher:rofi " { spawn "rofi" "-show" "window"; }
+ 
     // ─── Layout Controls ───
-    Mod+CTRL+F                          { expand-column-to-available-width; }
+    
+    //{expand-column-to-available-width;}
+    Mod+F                               { switch-preset-column-width; }
     Mod+C                               { center-column; }
     Mod+CTRL+C                          { center-visible-columns; }
     Mod+Minus                           { set-column-width "-10%"; }
@@ -119,7 +122,7 @@ binds {
 
     // ─── Modes ───
     Mod+T                               { toggle-window-floating; }
-    Mod+F                               { fullscreen-window; }
+    //Mod+F                               { fullscreen-window; }
     Mod+W                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───

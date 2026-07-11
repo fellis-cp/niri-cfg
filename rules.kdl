@@ -4,11 +4,11 @@ workspace "3" // browser
 
 
 window-rule {
-    geometry-corner-radius 12 // Set every window radius to 20
+    geometry-corner-radius 12 // Set every window radius to 12
     clip-to-geometry true
     open-maximized true
-    open-focused true
-     background-effect {
+    open-focused false
+    background-effect {
         blur false
     }
     draw-border-with-background false 
@@ -25,7 +25,6 @@ window-rule {
     open-maximized false
     open-focused true
 }
-
 
 window-rule {
     match app-id="code"
@@ -51,7 +50,6 @@ window-rule {
     open-on-workspace "3"
     open-focused false
     draw-border-with-background true
-
 }
 
 window-rule {
@@ -116,8 +114,6 @@ window-rule {
     }
 }
 
-
-
 window-rule {
     match app-id="python3"
     open-on-workspace "2"
@@ -128,8 +124,17 @@ window-rule {
 window-rule {
     match app-id="dolphin"
     opacity 0.8
-    background-effect{
+    background-effect {
         blur true
     }
 }
- 
+
+window-rule {
+    match app-id="kate"
+    opacity 0.93
+    open-maximized false
+    open-focused true
+    background-effect {
+        blur true
+    } 
+}
