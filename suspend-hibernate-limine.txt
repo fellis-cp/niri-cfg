@@ -1,0 +1,8 @@
+ESP_PATH="/boot"
+KERNEL_CMDLINE[default]+="quiet nowatchdog splash nvidia-drm.modeset=1 nvidia_drm.fbdev=1 rw rootflags=subvol=/@ root=UUID=45a97b29-5366-4af0-a2b6-b4dee5aaaac6" nvme_core.default_ps_max_latency_us=0 nvidia.NVreg_EnableS0ixPowerManagement=1 pcie_aspm=off"
+BOOT_ORDER="*, *lts, *fallback, Snapshots"
+
+--------etc/default/limine---------
+
+> limine-update
+> etc/default/limine
