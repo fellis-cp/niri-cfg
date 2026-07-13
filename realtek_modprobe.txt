@@ -1,0 +1,11 @@
+options rtw89_core disable_ps_mode=Y
+options rtw89_pci disable_aspm_l1=Y
+options rtw89_pci disable_aspm_l1ss=Y
+
+------ /etc/modprobe.d/rtw89.conf-------
+
+
+initframs> sudo mkinitcpio -P / pake limine-update aja
+
+
+
